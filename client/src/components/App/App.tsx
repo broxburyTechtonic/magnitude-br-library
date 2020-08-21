@@ -5,7 +5,7 @@ import { NavBar } from '../UiKit/NavBar/NavBar';
 export const App: React.FC<{}> = () => {
   return (
     <>
-    <Button />
+    <NavBar />
     </>
     
   );

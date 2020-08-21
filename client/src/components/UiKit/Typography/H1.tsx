@@ -4,8 +4,9 @@ import React from 'react';
 interface Props {
     text: string;
 }
-export const H1: React.FC<Props> = ({ type, text }) => {
+
+export const H1: React.FC<Props> = ({  text }) => {
   return (
-    <h1 className={type}>{text}</h1>
+    <h1 className='h1'>{text}</h1>
   );
 };

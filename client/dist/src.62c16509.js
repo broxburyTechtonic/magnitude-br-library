@@ -28357,7 +28357,50 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/components/UiKit/NavBar/NavBar.tsx":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/components/UiKit/Typography/H1.tsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.H1 = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* eslint-disable react/prop-types */
+var H1 = function H1(_a) {
+  var text = _a.text;
+  return _react.default.createElement("h1", {
+    className: 'h1'
+  }, text);
+};
+
+exports.H1 = H1;
+},{"react":"../node_modules/react/index.js"}],"../src/components/UiKit/Typography/H2.tsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.H2 = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* eslint-disable react/prop-types */
+var H2 = function H2(_a) {
+  var text = _a.text,
+      active = _a.active;
+  return _react.default.createElement("h2", {
+    className: active ? 'h2__active' : 'h2__static'
+  }, text);
+};
+
+exports.H2 = H2;
+},{"react":"../node_modules/react/index.js"}],"../src/components/UiKit/NavBar/NavBar.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28365,21 +28408,38 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.NavBar = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _H = require("../Typography/H1");
+
+var _H2 = require("../Typography/H2");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 /* eslint-disable react/prop-types */
 var NavBar = function NavBar() {
+  var _a = (0, _react.useState)('home'),
+      isActive = _a[0],
+      setIsActive = _a[1];
+
+  var updateMenu = function updateMenu(name) {};
+
   return _react.default.createElement("section", {
     className: 'container'
-  }, _react.default.createElement("section", {
-    className: 'title'
-  }));
+  }, _react.default.createElement(_H.H1, {
+    text: 'Library'
+  }), _react.default.createElement("section", {
+    className: 'menu'
+  }, _react.default.createElement(_H2.H2, {
+    text: 'Home',
+    active: isActive === 'home'
+  })));
 };
 
 exports.NavBar = NavBar;
-},{"react":"../node_modules/react/index.js"}],"../src/components/App/App.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../Typography/H1":"../src/components/UiKit/Typography/H1.tsx","../Typography/H2":"../src/components/UiKit/Typography/H2.tsx"}],"../src/components/App/App.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28445,7 +28505,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60130" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59094" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

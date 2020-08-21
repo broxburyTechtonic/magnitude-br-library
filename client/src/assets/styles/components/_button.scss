@@ -1,0 +1,22 @@
+.button {
+    color: white;
+    &__light { 
+        background-color: #8eb8e5;
+        color: white;
+        width: 300px;
+        height: 50px;
+        &:hover {
+            opacity: 80%;
+        }
+    }
+    &__dark {
+        background-color: #7c99b4;
+        width: 300px;
+        height: 50px;
+        &:hover {
+            opacity: 80%;
+        }
+    }
+  
+
+}

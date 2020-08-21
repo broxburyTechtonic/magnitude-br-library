@@ -1,0 +1,12 @@
+@import 'base';
+@import './styles/components/button';
+@import './styles/components/navbar';
+
+html,
+body,
+div#root {
+  @include full-page;
+  margin: 0;
+  padding: 0;
+}
+

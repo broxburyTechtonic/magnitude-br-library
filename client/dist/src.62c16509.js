@@ -32346,11 +32346,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Button = function Button(_a) {
   var type = _a.type,
       text = _a.text,
-      path = _a.path;
+      path = _a.path,
+      setPageFn = _a.setPageFn;
   return _react.default.createElement(_reactRouterDom.NavLink, {
     to: path
   }, _react.default.createElement("button", {
-    className: type
+    className: type,
+    onClick: function onClick() {
+      return setPageFn(path);
+    }
   }, text));
 };
 
@@ -32367,23 +32371,20 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _Button = require("../Button/Button");
 
+var _reactRouterDom = require("react-router-dom");
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 /* eslint-disable react/prop-types */
-var NavBar = function NavBar() {
-  var _a = (0, _react.useState)('home'),
-      isActive = _a[0],
-      setIsActive = _a[1];
+var NavBar = function NavBar(_a) {
+  var activePage = _a.activePage,
+      updateMenu = _a.updateMenu;
 
   var _b = (0, _react.useState)(''),
       search = _b[0],
       setSearch = _b[1];
-
-  var updateMenu = function updateMenu(name) {
-    setIsActive(name);
-  };
 
   var updateSearch = function updateSearch(event) {
     setSearch(event.target.value);
@@ -32391,28 +32392,34 @@ var NavBar = function NavBar() {
 
   return _react.default.createElement("section", {
     className: 'container'
-  }, console.log(isActive), _react.default.createElement("section", {
+  }, _react.default.createElement("section", {
     className: 'title-container'
   }, _react.default.createElement("h1", {
     className: 'title'
   }, "The Library")), _react.default.createElement("section", {
     className: 'menu'
+  }, _react.default.createElement(_reactRouterDom.NavLink, {
+    to: '/'
   }, _react.default.createElement("h2", {
-    className: isActive === 'home' ? 'h2_active' : 'h2_static',
+    className: activePage === 'home' ? 'h2_active' : 'h2_static',
     onClick: function onClick() {
       return updateMenu('home');
     }
-  }, "Home"), _react.default.createElement("h2", {
-    className: isActive === 'book' ? 'h2_active' : 'h2_static',
+  }, "Home")), _react.default.createElement(_reactRouterDom.NavLink, {
+    to: '/bookshelf'
+  }, _react.default.createElement("h2", {
+    className: activePage === 'bookshelf' ? 'h2_active' : 'h2_static',
     onClick: function onClick() {
-      return updateMenu('book');
+      return updateMenu('bookshelf');
     }
-  }, "Bookshelf"), _react.default.createElement("h2", {
-    className: isActive === 'add' ? 'h2_active' : 'h2_static',
+  }, "Bookshelf")), _react.default.createElement(_reactRouterDom.NavLink, {
+    to: '/add-book'
+  }, _react.default.createElement("h2", {
+    className: activePage === 'add-book' ? 'h2_active' : 'h2_static',
     onClick: function onClick() {
-      return updateMenu('add');
+      return updateMenu('add-book');
     }
-  }, "Add Book")), _react.default.createElement("section", {
+  }, "Add Book"))), _react.default.createElement("section", {
     className: 'search-container'
   }, _react.default.createElement("input", {
     type: 'text',
@@ -32425,12 +32432,13 @@ var NavBar = function NavBar() {
   }), _react.default.createElement(_Button.Button, {
     type: 'button__search',
     text: 'Search',
-    path: 'bookshelf'
+    path: 'bookshelf',
+    setPageFn: updateMenu
   })));
 };
 
 exports.NavBar = NavBar;
-},{"react":"../node_modules/react/index.js","../Button/Button":"../src/components/UiKit/Button/Button.tsx"}],"../src/components/LandingPage/LandingPage.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../Button/Button":"../src/components/UiKit/Button/Button.tsx","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"../src/components/LandingPage/LandingPage.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32444,7 +32452,8 @@ var _Button = require("../UiKit/Button/Button");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var LandingPage = function LandingPage() {
+var LandingPage = function LandingPage(_a) {
+  var setPage = _a.setPage;
   return _react.default.createElement("section", {
     className: 'landing-container'
   }, _react.default.createElement("section", {
@@ -32464,7 +32473,8 @@ var LandingPage = function LandingPage() {
   }, _react.default.createElement(_Button.Button, {
     type: 'button__dark',
     text: 'See Books',
-    path: 'bookshelf'
+    path: 'bookshelf',
+    setPageFn: setPage
   })), _react.default.createElement("section", {
     className: 'add-book-text'
   }, _react.default.createElement("p", {
@@ -32474,7 +32484,8 @@ var LandingPage = function LandingPage() {
   }, _react.default.createElement(_Button.Button, {
     type: 'button__dark',
     text: 'Add a Book',
-    path: 'add-book'
+    path: 'add-book',
+    setPageFn: setPage
   })));
 };
 
@@ -32505,11 +32516,20 @@ var App = function App() {
       setActivePage = _a[1];
 
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBar.NavBar, {
-    activePage: activePage
+    activePage: activePage,
+    updateMenu: setActivePage
   }), _react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: '/'
-  }, _react.default.createElement(_LandingPage.LandingPage, null)));
+  }, _react.default.createElement(_LandingPage.LandingPage, {
+    setPage: setActivePage
+  })), _react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: '/bookshelf'
+  }, _react.default.createElement("h2", null, "Hello bookshelf")), _react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: '/add-book'
+  }, _react.default.createElement("h2", null, "Hello addbook")));
 };
 
 exports.App = App;

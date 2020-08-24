@@ -6,15 +6,22 @@ import { LandingPage } from '../LandingPage/LandingPage'
 
 export const App: React.FC<{}> = () => {
 
-  const [activePage, setActivePage] = useState<string>('home')
+  const [activePage, setActivePage] = useState<string>('home');
+
 
   return (
     <>
-    <NavBar activePage={activePage}/>
+    <NavBar activePage={activePage} updateMenu={setActivePage}/>
       <Route exact path='/'>
-        <LandingPage />
+        <LandingPage setPage={setActivePage}/>
       </Route>
-    </sring>
+      <Route exact path='/bookshelf'>
+        <h2>Hello bookshelf</h2>
+      </Route>
+      <Route exact path='/add-book'>
+        <h2>Hello addbook</h2>
+      </Route>
+    </>
     
   );
 };

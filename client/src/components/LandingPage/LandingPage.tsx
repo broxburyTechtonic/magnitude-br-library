@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { SetStateAction } from 'react';
 import { Button } from '../UiKit/Button/Button'
 import { NavLink } from 'react-router-dom';
 
-export const LandingPage: React.FC<{}> = () => {
+interface Props {
+    setPage: React.Dispatch<SetStateAction<string>>
+}
+
+export const LandingPage: React.FC<Props> = ({ setPage }) => {
     return (
         <section className='landing-container'>
             <section className='landing-img'>
@@ -17,7 +21,7 @@ export const LandingPage: React.FC<{}> = () => {
                         ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </section>
                 <section className='centered'>
-                    <Button type={'button__dark'} text={'See Books'} path={'bookshelf'} />
+                    <Button type={'button__dark'} text={'See Books'} path={'bookshelf'} setPageFn={setPage}/>
                 </section>
                 <section className='add-book-text'>
                     <p className='book-info-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -26,7 +30,7 @@ export const LandingPage: React.FC<{}> = () => {
                         ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </section>
                 <section className='centered'>
-                    <Button type={'button__dark'} text={'Add a Book'} path={'add-book'}/>
+                    <Button type={'button__dark'} text={'Add a Book'} path={'add-book'} setPageFn={setPage}/>
                 </section>
         </section>
     )

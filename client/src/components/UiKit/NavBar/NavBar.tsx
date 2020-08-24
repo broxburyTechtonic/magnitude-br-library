@@ -2,7 +2,11 @@
 import React, { useState } from 'react';
 import { Button } from '../Button/Button'
 
-export const NavBar: React.FC<{}> = () => {
+interface Props {
+  activePage: string
+}
+
+export const NavBar: React.FC<Props> = () => {
   const [isActive, setIsActive] = useState<string>('home');
   const [search, setSearch] = useState<string>('')
   
@@ -27,7 +31,7 @@ export const NavBar: React.FC<{}> = () => {
         </section>
       <section className='search-container'>
         <input type='text' onChange={(e) => updateSearch(e)} value={search} className='search-input' placeholder="Search by Title/Author"></input>
-        <Button type={'button__search'} text={'Search'}/>
+        <Button type={'button__search'} text={'Search'} path={'bookshelf'}/>
       </section>
    </section>
   );

@@ -1,6 +1,7 @@
 .button {
-    color: white;
+    justify-self: center;
     &__light { 
+        cursor: pointer;
         background-color: #8eb8e5;
         color: white;
         width: 300px;
@@ -10,14 +11,22 @@
         }
     }
     &__dark {
-        background-color: #7c99b4;
-        width: 300px;
-        height: 50px;
+        margin: 20px auto;
+        font-family: 'Rubik';
+        font-weight: 600;
+        cursor: pointer;
+        background-color: #16181a;
+        width: 13rem;
+        height: 2.7rem;
+        border-radius: 8px;
+        color: white;
+        font-size: 1.5rem;
         &:hover {
             opacity: 80%;
         }
     }
     &__search {
+        cursor: pointer;
         font-size: 1em;
         width: 5em;
         height: 2.2em;
@@ -28,3 +37,4 @@
         margin-right: 20px;
     }
 }
+

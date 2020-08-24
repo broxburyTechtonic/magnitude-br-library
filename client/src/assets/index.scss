@@ -2,6 +2,7 @@
 @import './styles/components/button';
 @import './styles/components/navbar';
 @import './styles/components/typography';
+@import './styles/components/landingPage';
 
 
 $san-serif: "Rubik";
@@ -16,4 +17,9 @@ div#root {
 body {
   @include full-page;
   font-family: $san-serif;  
+}
+
+p {
+  font-size: 1.3rem;
+  margin: 0;
 }

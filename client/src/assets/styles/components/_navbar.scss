@@ -1,10 +1,31 @@
 .container {
     display: flex;
-    width: 100%;
-    height: 15%;
-    border: 3px solid red;
+    justify-content: space-between;
+    width: 100vw;
+    height: auto;
+    background-color: #37505C;
+    align-items: center;
 }
 
 .font {
     font-family: 'Rubik', sans-serif;
 }
+
+.align-horizontal {
+    margin-top: 50px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    font-size: 1rem;
+    width: 15rem;
+    height: 2.2rem;
+    border: 0px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+

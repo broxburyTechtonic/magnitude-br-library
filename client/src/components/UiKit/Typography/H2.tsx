@@ -4,6 +4,9 @@ import React from 'react';
 interface Props {
     text: string;
     active: boolean;
+    updateMenu?: (arg0: string) => undefined
+      
+    }
 }
 
 export const H2: React.FC<Props> = ({ text, active }) => {

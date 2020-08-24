@@ -3,11 +3,17 @@
 @import './styles/components/navbar';
 @import './styles/components/typography';
 
+
+$san-serif: "Rubik";
+
 html,
-body,
 div#root {
   @include full-page;
   margin: 0;
   padding: 0;
 }
 
+body {
+  @include full-page;
+  font-family: $san-serif;  
+}

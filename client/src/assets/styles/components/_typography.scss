@@ -1,6 +1,25 @@
-.h1 {
+.title {
     margin: 0;
+    margin-left: 10px;
     font-size: 3rem;
-    color: white
+    color: white;
+    font-family: san-serif;
+}
+
+.h2_active {
+    cursor: pointer;;
+    margin: 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+    font-family: san-serif;
+}
+
+.h2_static {
+    cursor: pointer;
+    margin: 1.5rem;
+    opacity: 50%;
+    font-size: 1.5rem;
+    color: white;
+    font-family: san-serif;
 }
 

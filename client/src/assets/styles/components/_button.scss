@@ -17,6 +17,14 @@
             opacity: 80%;
         }
     }
-  
-
+    &__search {
+        font-size: 1em;
+        width: 5em;
+        height: 2.2em;
+        color: #5fbff9;
+        border: 2px solid #5fbff9;
+        border-radius: 5px;
+        background-color: #37505C;
+        margin-right: 20px;
+    }
 }
